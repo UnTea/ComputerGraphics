@@ -228,26 +228,26 @@ func TestSubtraction(t *testing.T) {
 	}
 }
 
-func TestDivine(t *testing.T) {
+func TestDivide(t *testing.T) {
 	tests := []struct {
 		inputVector1   *vector3
 		inputVector2   *vector3
 		expectedDivine *vector3
 	}{
-		{NewVector3(1, 1, 1), NewVector3(1, 1, 1), NewVector3(1, 1, 1).Divine(NewVector3(1, 1, 1))},
-		{NewVector3(1, 1, 1), NewVector3(2, 1, 2), NewVector3(1, 1, 1).Divine(NewVector3(2, 1, 2))},
-		{NewVector3(1, 1, 1), NewVector3(1, 2, 1), NewVector3(1, 1, 1).Divine(NewVector3(1, 2, 1))},
-		{NewVector3(1, 1, 1), NewVector3(3, 3, 3), NewVector3(1, 1, 1).Divine(NewVector3(3, 3, 3))},
-		{NewVector3(1, 1, 1), NewVector3(-1, -2, -3), NewVector3(1, 1, 1).Divine(NewVector3(-1, -2, -3))},
-		{NewVector3(1, 1, 1), NewVector3(-2, -1, 0), NewVector3(1, 1, 1).Divine(NewVector3(-2, -1, 0))},
-		{NewVector3(1, 1, 1), NewVector3(-3, -3, -3), NewVector3(1, 1, 1).Divine(NewVector3(-3, -3, -3))},
-		{NewVector3(1, 1, 1), NewVector3(0, 0, 0), NewVector3(1, 1, 1).Divine(NewVector3(0, 0, 0))},
+		{NewVector3(1, 1, 1), NewVector3(1, 1, 1), NewVector3(1, 1, 1).Divide(NewVector3(1, 1, 1))},
+		{NewVector3(1, 1, 1), NewVector3(2, 1, 2), NewVector3(1, 1, 1).Divide(NewVector3(2, 1, 2))},
+		{NewVector3(1, 1, 1), NewVector3(1, 2, 1), NewVector3(1, 1, 1).Divide(NewVector3(1, 2, 1))},
+		{NewVector3(1, 1, 1), NewVector3(3, 3, 3), NewVector3(1, 1, 1).Divide(NewVector3(3, 3, 3))},
+		{NewVector3(1, 1, 1), NewVector3(-1, -2, -3), NewVector3(1, 1, 1).Divide(NewVector3(-1, -2, -3))},
+		{NewVector3(1, 1, 1), NewVector3(-2, -1, 0), NewVector3(1, 1, 1).Divide(NewVector3(-2, -1, 0))},
+		{NewVector3(1, 1, 1), NewVector3(-3, -3, -3), NewVector3(1, 1, 1).Divide(NewVector3(-3, -3, -3))},
+		{NewVector3(1, 1, 1), NewVector3(0, 0, 0), NewVector3(1, 1, 1).Divide(NewVector3(0, 0, 0))},
 	}
 
 	for _, ts := range tests {
 		vector1 := ts.inputVector1
 		vector2 := ts.inputVector2
-		divine := vector1.Divine(vector2)
+		divine := vector1.Divide(vector2)
 
 		if divine.x != ts.expectedDivine.x || divine.y != ts.expectedDivine.y || divine.z != ts.expectedDivine.z {
 			t.Fatalf("expected [%v] but have [%v]", ts.expectedDivine, divine)
@@ -255,30 +255,30 @@ func TestDivine(t *testing.T) {
 	}
 }
 
-func TestDivineOnScalar(t *testing.T) {
+func TestDivideOnScalar(t *testing.T) {
 	tests := []struct {
 		inputVector            *vector3
 		inputScalar            float64
 		expectedDivineOnScalar *vector3
 	}{
-		{NewVector3(0, 0, 0), 5.1, NewVector3(0, 0, 0).DivineOnScalar(5.1)},
-		{NewVector3(0, 0, 0), -5.4, NewVector3(0, 0, 0).DivineOnScalar(-5.4)},
-		{NewVector3(1, 1, 1), 11.3, NewVector3(1, 1, 1).DivineOnScalar(11.3)},
-		{NewVector3(1, 1, 1), 0.8, NewVector3(1, 1, 1).DivineOnScalar(0.8)},
-		{NewVector3(1, 1, 1), 3.6, NewVector3(1, 1, 1).DivineOnScalar(3.6)},
-		{NewVector3(1, 1, 1), -4.2, NewVector3(1, 1, 1).DivineOnScalar(-4.2)},
-		{NewVector3(1, 1, 1), 7.7, NewVector3(1, 1, 1).DivineOnScalar(7.7)},
-		{NewVector3(1, 1, 1), 8.5, NewVector3(1, 1, 1).DivineOnScalar(8.5)},
-		{NewVector3(1, 1, 1), -0.1, NewVector3(1, 1, 1).DivineOnScalar(-0.1)},
-		{NewVector3(1, 1, 1), 0.01, NewVector3(1, 1, 1).DivineOnScalar(0.01)},
-		{NewVector3(1, 1, 1), -0.001, NewVector3(1, 1, 1).DivineOnScalar(-0.001)},
-		{NewVector3(1, 1, 1), 14.2, NewVector3(1, 1, 1).DivineOnScalar(14.2)},
-		{NewVector3(1, 1, 1), -0.2, NewVector3(1, 1, 1).DivineOnScalar(-0.2)},
+		{NewVector3(0, 0, 0), 5.1, NewVector3(0, 0, 0).DivideOnScalar(5.1)},
+		{NewVector3(0, 0, 0), -5.4, NewVector3(0, 0, 0).DivideOnScalar(-5.4)},
+		{NewVector3(1, 1, 1), 11.3, NewVector3(1, 1, 1).DivideOnScalar(11.3)},
+		{NewVector3(1, 1, 1), 0.8, NewVector3(1, 1, 1).DivideOnScalar(0.8)},
+		{NewVector3(1, 1, 1), 3.6, NewVector3(1, 1, 1).DivideOnScalar(3.6)},
+		{NewVector3(1, 1, 1), -4.2, NewVector3(1, 1, 1).DivideOnScalar(-4.2)},
+		{NewVector3(1, 1, 1), 7.7, NewVector3(1, 1, 1).DivideOnScalar(7.7)},
+		{NewVector3(1, 1, 1), 8.5, NewVector3(1, 1, 1).DivideOnScalar(8.5)},
+		{NewVector3(1, 1, 1), -0.1, NewVector3(1, 1, 1).DivideOnScalar(-0.1)},
+		{NewVector3(1, 1, 1), 0.01, NewVector3(1, 1, 1).DivideOnScalar(0.01)},
+		{NewVector3(1, 1, 1), -0.001, NewVector3(1, 1, 1).DivideOnScalar(-0.001)},
+		{NewVector3(1, 1, 1), 14.2, NewVector3(1, 1, 1).DivideOnScalar(14.2)},
+		{NewVector3(1, 1, 1), -0.2, NewVector3(1, 1, 1).DivideOnScalar(-0.2)},
 	}
 
 	for _, ts := range tests {
 		vector := ts.inputVector
-		divineOnScalar := vector.DivineOnScalar(ts.inputScalar)
+		divineOnScalar := vector.DivideOnScalar(ts.inputScalar)
 
 		if divineOnScalar.x != ts.expectedDivineOnScalar.x || divineOnScalar.y != ts.expectedDivineOnScalar.y || divineOnScalar.z != ts.expectedDivineOnScalar.z {
 			t.Fatalf("expected [%v] but have [%v]", ts.expectedDivineOnScalar, divineOnScalar)

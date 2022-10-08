@@ -70,7 +70,7 @@ func (v *vector3) Subtraction(v2 *vector3) *vector3 {
 	)
 }
 
-func (v *vector3) Divine(v2 *vector3) *vector3 {
+func (v *vector3) Divide(v2 *vector3) *vector3 {
 	return NewVector3(
 		v.x/v2.x,
 		v.y/v2.y,
@@ -78,7 +78,7 @@ func (v *vector3) Divine(v2 *vector3) *vector3 {
 	)
 }
 
-func (v *vector3) DivineOnScalar(scalar float64) *vector3 {
+func (v *vector3) DivideOnScalar(scalar float64) *vector3 {
 	return NewVector3(
 		v.x/scalar,
 		v.y/scalar,
