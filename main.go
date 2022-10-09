@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/UnTea/ComputerGraphics/linmath"
 	"image"
-	color2 "image/color"
+	"image/color"
 	"image/png"
 	"log"
 	"math"
@@ -126,7 +126,7 @@ func main() {
 			img.Set(
 				x,
 				y2,
-				color2.NRGBA{
+				color.NRGBA{
 					R: pixels[x+y2*screenWidth].r,
 					G: pixels[x+y2*screenWidth].g,
 					B: pixels[x+y2*screenWidth].b,
