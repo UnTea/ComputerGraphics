@@ -6,7 +6,7 @@ import (
 
 func TestLength(t *testing.T) {
 	tests := []struct {
-		inputVector    *vector3
+		inputVector    *Vector3
 		expectedLength float64
 	}{
 		{NewVector3(0, 0, 0), NewVector3(0, 0, 0).Length()},
@@ -30,8 +30,8 @@ func TestLength(t *testing.T) {
 
 func TestNormal(t *testing.T) {
 	tests := []struct {
-		inputVector    *vector3
-		expectedNormal *vector3
+		inputVector    *Vector3
+		expectedNormal *Vector3
 	}{
 		{NewVector3(1, 0, -1), NewVector3(1, 0, -1).Normal()},
 		{NewVector3(1, -1, 0), NewVector3(1, -1, 0).Normal()},
@@ -53,8 +53,8 @@ func TestNormal(t *testing.T) {
 
 func TestNegative(t *testing.T) {
 	tests := []struct {
-		inputVector      *vector3
-		expectedNegative *vector3
+		inputVector      *Vector3
+		expectedNegative *Vector3
 	}{
 		{NewVector3(1, 0, 0), NewVector3(1, 0, 0).Negative()},
 		{NewVector3(1, -1, 0), NewVector3(1, -1, 0).Negative()},
@@ -76,9 +76,9 @@ func TestNegative(t *testing.T) {
 
 func TestMultiply(t *testing.T) {
 	tests := []struct {
-		inputVector1     *vector3
-		inputVector2     *vector3
-		expectedMultiply *vector3
+		inputVector1     *Vector3
+		inputVector2     *Vector3
+		expectedMultiply *Vector3
 	}{
 		{NewVector3(1, 1, 1), NewVector3(1, 1, 1), NewVector3(1, 1, 1).Multiply(NewVector3(1, 1, 1))},
 		{NewVector3(1, 1, 1), NewVector3(2, 1, 2), NewVector3(1, 1, 1).Multiply(NewVector3(2, 1, 2))},
@@ -103,9 +103,9 @@ func TestMultiply(t *testing.T) {
 
 func TestMultiplyOnScalar(t *testing.T) {
 	tests := []struct {
-		inputVector              *vector3
+		inputVector              *Vector3
 		inputScalar              float64
-		expectedMultiplyOnScalar *vector3
+		expectedMultiplyOnScalar *Vector3
 	}{
 		{NewVector3(0, 0, 0), 5.1, NewVector3(0, 0, 0).MultiplyOnScalar(5.1)},
 		{NewVector3(0, 0, 0), -5.4, NewVector3(0, 0, 0).MultiplyOnScalar(-5.4)},
@@ -134,8 +134,8 @@ func TestMultiplyOnScalar(t *testing.T) {
 
 func TestDot(t *testing.T) {
 	tests := []struct {
-		inputVector1 *vector3
-		inputVector2 *vector3
+		inputVector1 *Vector3
+		inputVector2 *Vector3
 		expectedDot  float64
 	}{
 		{NewVector3(0, 0, 1.2), NewVector3(-1, -1, -1), NewVector3(0, 0, 1.2).Dot(NewVector3(-1, -1, -1))},
@@ -166,9 +166,9 @@ func TestDot(t *testing.T) {
 
 func TestAdd(t *testing.T) {
 	tests := []struct {
-		inputVector1 *vector3
-		inputVector2 *vector3
-		expectedAdd  *vector3
+		inputVector1 *Vector3
+		inputVector2 *Vector3
+		expectedAdd  *Vector3
 	}{
 		{NewVector3(0, 0, 1.2), NewVector3(-1, -1, -1), NewVector3(0, 0, 1.2).Add(NewVector3(-1, -1, -1))},
 		{NewVector3(0, -1.7, 0), NewVector3(-1, -1, 1), NewVector3(0, -1.7, 0).Add(NewVector3(-1, -1, 1))},
@@ -198,9 +198,9 @@ func TestAdd(t *testing.T) {
 
 func TestSubtraction(t *testing.T) {
 	tests := []struct {
-		inputVector1        *vector3
-		inputVector2        *vector3
-		expectedSubtraction *vector3
+		inputVector1        *Vector3
+		inputVector2        *Vector3
+		expectedSubtraction *Vector3
 	}{
 		{NewVector3(0, 0, 1.2), NewVector3(-1, -1, -1), NewVector3(0, 0, 1.2).Subtraction(NewVector3(-1, -1, -1))},
 		{NewVector3(0, -1.7, 0), NewVector3(-1, -1, 1), NewVector3(0, -1.7, 0).Subtraction(NewVector3(-1, -1, 1))},
@@ -230,9 +230,9 @@ func TestSubtraction(t *testing.T) {
 
 func TestDivide(t *testing.T) {
 	tests := []struct {
-		inputVector1   *vector3
-		inputVector2   *vector3
-		expectedDivine *vector3
+		inputVector1   *Vector3
+		inputVector2   *Vector3
+		expectedDivine *Vector3
 	}{
 		{NewVector3(1, 1, 1), NewVector3(1, 1, 1), NewVector3(1, 1, 1).Divide(NewVector3(1, 1, 1))},
 		{NewVector3(1, 1, 1), NewVector3(2, 1, 2), NewVector3(1, 1, 1).Divide(NewVector3(2, 1, 2))},
@@ -257,9 +257,9 @@ func TestDivide(t *testing.T) {
 
 func TestDivideOnScalar(t *testing.T) {
 	tests := []struct {
-		inputVector            *vector3
+		inputVector            *Vector3
 		inputScalar            float64
-		expectedDivineOnScalar *vector3
+		expectedDivineOnScalar *Vector3
 	}{
 		{NewVector3(0, 0, 0), 5.1, NewVector3(0, 0, 0).DivideOnScalar(5.1)},
 		{NewVector3(0, 0, 0), -5.4, NewVector3(0, 0, 0).DivideOnScalar(-5.4)},
@@ -288,10 +288,10 @@ func TestDivideOnScalar(t *testing.T) {
 
 func TestClamp(t *testing.T) {
 	tests := []struct {
-		inputVector1  *vector3
+		inputVector1  *Vector3
 		inputMin      float64
 		inputMax      float64
-		expectedClamp *vector3
+		expectedClamp *Vector3
 	}{
 		{NewVector3(0, 0, 1.2), -1, 1, NewVector3(0, 0, 1.2).Clamp(-1, 1)},
 		{NewVector3(0, -1.7, 0), -2, 2, NewVector3(0, -1.7, 0).Clamp(-2, 2)},
@@ -320,9 +320,9 @@ func TestClamp(t *testing.T) {
 
 func TestPower(t *testing.T) {
 	tests := []struct {
-		inputVector   *vector3
+		inputVector   *Vector3
 		inputScalar   float64
-		expectedPower *vector3
+		expectedPower *Vector3
 	}{
 		{NewVector3(0.4, 0.5, 1.2), 5.1, NewVector3(0.4, 0.5, 1.2).Power(5.1)},
 		{NewVector3(0.1, 1.7, 0.9), 5.4, NewVector3(0.1, 1.7, 0.9).Power(5.4)},
@@ -380,7 +380,7 @@ func TestRadians(t *testing.T) {
 func TestSplat(t *testing.T) {
 	tests := []struct {
 		inputDegrees  float64
-		expectedSplat *vector3
+		expectedSplat *Vector3
 	}{
 		{1.5, Splat(1.5)},
 		{-1.5, Splat(-1.5)},
